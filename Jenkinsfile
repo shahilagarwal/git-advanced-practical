@@ -1,36 +1,20 @@
-pipeline {
-    agent any
+node {
 
-    triggers {
-        cron('H/2 * * * *')      // Build every 2 minutes
-        pollSCM('H/1 * * * *')   // Poll SCM every 1 minute
+    stage('Clone Repository') {
+        echo 'Cloning repository...'
     }
 
-    stages {
+    stage('Build') {
+        echo 'Building project...'
+        sh 'echo Build Successful'
+    }
 
-        stage('Clone Repository') {
-            steps {
-                echo 'Cloning repository...'
-            }
-        }
+    stage('Echo Build Status') {
+        echo 'Build completed successfully!'
+    }
 
-        stage('Build') {
-            steps {
-                echo 'Building project...'
-                sh 'echo Build Successful'
-            }
-        }
-
-        stage('Echo Build Status') {
-            steps {
-                echo "Build completed successfully!"
-            }
-        }
-
-        stage('Archive Artifacts') {
-            steps {
-                archiveArtifacts artifacts: '*.txt', fingerprint: true
-            }
-        }
+    stage('Archive Artifacts') {
+        archiveArtifacts artifacts: '*.txt', fingerprint: true
     }
 }
+
