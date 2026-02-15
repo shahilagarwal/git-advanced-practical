@@ -1,5 +1,4 @@
-Initial content of file1
-Second version of file1
-Feature 1 modification
+
 Feature change
 Main change
+
