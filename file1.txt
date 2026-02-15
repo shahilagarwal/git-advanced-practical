@@ -1,1 +1,2 @@
 Initial content of file1
+Second version of file1
