@@ -1,2 +1,3 @@
 Initial content of file2
 Second version of file2
+Feature 2 small change
